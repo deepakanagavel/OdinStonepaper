@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script>
+            function computerPlay() {
+                var choices = ['rock', 'paper', 'scissors'];
+                var randomPlay = Math.floor(Math.random()*choices.length);
+                return choices[randomPlay];
+            }
+            var computerSelection = computerPlay;
+            var playerSelection;
+            var wins = 0;
+            var losses = 0;
+            var draws = 0;
+
+            function playRound(playerSelection, computerSelection) {
+                var playerSelection = prompt("Rock, Paper, or Scissors?");
+                playerSelection = playerSelection.toLowerCase();
+                if(playerSelection === computerSelection) {
+                    draws++;
+                    alert("It is a tie.");
+                }
+                else if(playerSelection === 'rock' && computerSelection === 'scissor') {
+                    wins++;
+                    alert("You win! Rock beats Scissors.");
+                }
+                else if(playerSelection === 'paper' && computerSelection === 'rock') {
+                    wins++;
+                    alert("You win! Paper beats Rock.");                
+                } 
+                else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                    wins++;
+                    alert("You win! Scissors beats Paper");
+                } 
+                else if (playerSelection == 'rock' && computerSelection == 'paper') {
+                    losses++;
+                } 
+                else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+                    losses++;
+                    alert("You lose! Scissors beats Paper")
+                } 
+                else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+                    losses++;
+                    alert("You lose! Rock beats Scissors");
+                } 
+                else {
+                    alert("Oops! Something went wrong.");
+                }
+            }
+            function game() {
+
+                for(var i = 0; i <=5; i++) {
+                    playRound(playerSelection, computerPlay());
+                    alert("Wins - " + wins + "\n" + "Losses - " + losses + "\n" + "Draws - " + draws);
+                }
+            }
+            game();                
+        </script>
+    </head>
+</html>
